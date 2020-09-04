@@ -1,0 +1,16 @@
+<div class="recipes-container">
+  <h2 class="text-center">Recipes list</h2>
+  <br>
+  <div class="row">
+    {{#each recipes as |recipe|}}
+      <div class="col-sm-3 col-md-6 col-md-6">
+        <div class="card-recipe-cp">
+          Name: {{recipe.name}} <br>
+          Description: {{recipe.description}} <br>
+          Number of servings: {{recipe.numberServings}} <br>
+          Cooking Time: {{recipe.cookingTime}} <br>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
