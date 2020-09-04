@@ -1,9 +1,9 @@
 <div class="recipes-container">
-  <h2 class="text-center">Recipes list</h2>
+  <h2 class="color-text-default">Recipes list <span class="badge badge-secondary">{{recipes.length}}</span></h2>
   <br>
   <div class="row">
     {{#each recipes as |recipe|}}
-      <div class="col-sm-3 col-md-6 col-md-6">
+      <div class="col-xs-1 col-sm-6 col-md-6 col-lg-3">
         <div class="card-recipe-cp">
           Name: {{recipe.name}} <br>
           Description: {{recipe.description}} <br>

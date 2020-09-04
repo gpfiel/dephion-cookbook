@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-// import { inject as service } from '@ember/service'
 import { A } from '@ember/array';
 
 export default class RecipesRoute extends Route {

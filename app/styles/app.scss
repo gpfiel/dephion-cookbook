@@ -4,6 +4,7 @@ $default_text_secondary_color: #F3827C;
 @import "ember-cli-bootstrap-4/bootstrap";
 @import "components/menu-left-cp";
 @import "components/card-recipe-cp";
+@import "pages/recipes";
 
 @font-face {
   font-family: 'FontAwesome';
@@ -12,6 +13,6 @@ $default_text_secondary_color: #F3827C;
   font-style: normal;
 }
 
-.recipes-container {
-  margin-top: 15px;
+.color-text-default {
+  color: $default_text_color;
 }
