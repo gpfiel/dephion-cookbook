@@ -3,4 +3,14 @@
   height: calc(100vh);
   position: sticky;
   z-index: 1000;
+  a {
+    color: $default_text_color;
+  }
+
+  .logo-app .logo {
+    height: 110px;
+    width: 110px;
+    margin-left: -5px;
+    margin-top: 10px;
+  }
 }
