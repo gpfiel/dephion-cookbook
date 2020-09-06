@@ -1,6 +1,6 @@
 <div class="recipes-container">
-  <h2 class="color-text-default">Recipes list <span class="badge badge-secondary">{{recipes.length}}</span></h2>
   <br>
+  <h2 class="color-text-default">Recipes list <span class="badge badge-secondary">{{recipes.length}}</span></h2>
   <div class="row">
     {{#each recipes as |recipe|}}
       <CardRecipe @recipe={{recipe}} />
