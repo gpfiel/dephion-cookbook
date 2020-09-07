@@ -1,13 +1,15 @@
 <div class="recipes-container">
   <br>
   <h2 class="color-text-default">Recipes list <span class="badge badge-secondary">{{recipes.length}}</span></h2>
+  <Input type="text" class="form-control col-sm-12" id="search" placeholder="Search by receipt name" @value={{this.recipeService.search}} />
+  <br>
   <div class="row">
-    {{#each this.recipeService.recipes as |recipe|}}
+    {{#each this.recipeService.sortedList as |recipe|}}
       <CardRecipe @recipe={{recipe}} />
     {{else}}
       <div class="col-sm-12 text-center">
         <span class="text-danger">
-          --- No recipes --- 
+          --- No recipes found --- 
         </span>
       </div>
     {{/each}}
