@@ -3,9 +3,9 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class CardRecipeComponent extends Component {
-  @service('recipe') recipeService
+  @service('ingredient') ingredientService
 
-  @action removeRecipe(recipe) {
-    this.recipeService.remove(recipe)
+  @action removeIngredient(ingredient) {
+    this.ingredientService.remove(ingredient)
   }
 }

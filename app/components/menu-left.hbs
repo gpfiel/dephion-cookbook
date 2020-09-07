@@ -16,10 +16,14 @@
     </li>
     <hr>
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class="fa fa-list"></i> Ingredients</a>
+      <LinkTo @route="ingredients" class="nav-link">
+        <a class="nav-link" href="#"><i class="fa fa-list"></i> Ingredients</a>
+      </LinkTo>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class="fa fa-plus"></i> New ingredient</a>
+      <LinkTo @route="new-ingredient" class="nav-link">
+        <a class="nav-link" href="#"><a class="nav-link" href="#"><i class="fa fa-plus"></i> New ingredient</a></a>
+      </LinkTo>
     </li>
   </ul>
 </div>

@@ -1,0 +1,17 @@
+<div class="ingredients-container">
+  <br>
+  <h2 class="color-text-default">Ingredients list <span class="badge badge-secondary">{{ingredients.length}}</span></h2>
+  <Input type="text" class="form-control col-sm-12" id="search" placeholder="Search by receipt name" @value={{this.ingredientService.search}} />
+  <br>
+  <div class="row">
+    {{#each this.ingredientService.sortedList as |ingredient|}}
+      <CardIngredient @ingredient={{ingredient}} />
+    {{else}}
+      <div class="col-sm-12 text-center">
+        <span class="text-danger">
+          --- No ingredients found --- 
+        </span>
+      </div>
+    {{/each}}
+  </div>
+</div>
