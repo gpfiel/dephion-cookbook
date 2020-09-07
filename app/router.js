@@ -9,6 +9,7 @@ export default class Router extends EmberRouter {
 Router.map(function() {
   this.route('recipes');
   this.route('new-recipe');
+  this.route('edit-recipe', { path: 'edit-recipe/:id' });
   this.route('ingredients');
   this.route('new-ingredient');
 });

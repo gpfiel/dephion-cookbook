@@ -13,7 +13,7 @@ export default class RecipeService extends Service {
 
   guid() {
     function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
     return (s4() + '-' + s4()).toUpperCase()
   }
@@ -32,7 +32,7 @@ export default class RecipeService extends Service {
     if (isEmpty(this.search)) return this.recipes
     let recipeTmp = A([])
     this.recipes.forEach((recipe) => {
-      if (this.matchFields(recipe))
+      if (this.matchFields(recipe)) 
         recipeTmp.pushObject(recipe)
     })
     return recipeTmp
@@ -40,14 +40,14 @@ export default class RecipeService extends Service {
   
 
   add(recipe) {
-    this.store.createRecord('recipe', {
+    const recipeObj = this.store.createRecord('recipe', {
       id: this.guid(),
       name: recipe.name,
       description: recipe.description,
       numberServings: recipe.numberServings,
       cookingTime: recipe.cookingTime,
     })
-    this.recipes.pushObject(recipe);
+    this.recipes.pushObject(recipeObj);
   }
 
   remove(recipe) {

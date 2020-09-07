@@ -13,7 +13,7 @@ export default class IngredientService extends Service {
 
   guid() {
     function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
     return (s4() + '-' + s4()).toUpperCase()
   }
@@ -40,12 +40,12 @@ export default class IngredientService extends Service {
   
 
   add(ingredient) {
-    this.store.createRecord('ingredient', {
+    const ingredientObj = this.store.createRecord('ingredient', {
       id: this.guid(),
       name: ingredient.name,
       description: ingredient.description
     })
-    this.ingredients.pushObject(ingredient);
+    this.ingredients.pushObject(ingredientObj);
   }
 
   remove(ingredient) {
