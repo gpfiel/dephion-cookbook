@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class NewRecipeController extends Controller {
+export default class EditRecipeController extends Controller {
   @action save() {
     this.transitionToRoute('recipes')
   }
