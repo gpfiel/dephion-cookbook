@@ -4,6 +4,12 @@
   <div class="row">
     {{#each this.recipeService.recipes as |recipe|}}
       <CardRecipe @recipe={{recipe}} />
+    {{else}}
+      <div class="col-sm-12 text-center">
+        <span class="text-danger">
+          --- No recipes --- 
+        </span>
+      </div>
     {{/each}}
   </div>
 </div>
