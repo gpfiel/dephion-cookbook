@@ -32,7 +32,12 @@ export default class RecipeService extends Service {
   }
 
   remove(recipe) {
-    this.recipes.removeObject(recipe);
+    const self = this;
+    (async function () {
+      if (await confirm(`Are you sure about deleting (${recipe.name.toUpperCase()}) ?`)) {
+        self.recipes.removeObject(recipe);
+      }
+    })()
   }
 
   empty() {

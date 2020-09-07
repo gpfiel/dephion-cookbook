@@ -4,5 +4,7 @@
     Description: {{@recipe.description}} <br>
     Number of servings: {{@recipe.numberServings}} <br>
     Cooking Time: {{@recipe.cookingTime}} <br>
+    <br>
+    <button class="btn btn-danger btn-sm" {{on "click" (fn this.removeRecipe @recipe)}}>Remove</button>
   </div>
 </div>
