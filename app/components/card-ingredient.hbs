@@ -4,5 +4,6 @@
     Description: {{@ingredient.description}} <br>
     <br>
     <button class="btn btn-danger btn-sm" {{on "click" (fn this.removeIngredient @ingredient)}}>Remove</button>
+    <button class="btn btn-info btn-sm" {{on "click" (fn this.editIngredient @ingredient)}}>Edit</button>
   </div>
 </div>
