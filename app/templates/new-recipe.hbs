@@ -20,6 +20,16 @@
           <label for="formCookingTime">Cooking Time</label>
           <Input type="text" class="form-control" id="formCookingTime" placeholder="10h"  @value={{this.recipe.cookingTime}} />
         </div>
+        <hr>
+         <h4>Add Step </h4>
+         <select onchange={{action (mut ingredientSelected) value="target.value"}}>
+           <option value="0">Select ingredient</option>
+            {{#each this.ingredientService.ingredients as |ingredient|}}
+              <option value={{ingredient.id}} >{{ingredient.name}}</option>
+            {{/each}}
+        </select>
+        <hr>
+      
         <button type="button" class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
         <button type="submit"  disabled={{this.isNotValidForm}} class="btn btn-primary" {{on "click" (fn this.addRecipe)}}>Save</button>
       </form>

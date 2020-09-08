@@ -5,6 +5,9 @@ import { isEmpty } from '@ember/utils';
 
 export default class NewRecipeController extends Controller {
   @service('recipe') recipeService
+  @service('ingredient') ingredientService
+
+  ingredientSelected = null
 
   recipe = {
     name: null,
