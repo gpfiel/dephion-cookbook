@@ -34,7 +34,7 @@ export default class ApplicationRoute extends Route {
           amountRequired: '2 spons',
         },
         {
-          position: 1,
+          position: 2,
           instructions: 'Using an electric whisk, beat the butter and sugar together until pale, light and fluffy. Add the eggs and mix again. Add the flour, baking powder, lemon zest, lemon curd and milk, and mix with a wooden spoon until all the ingredients are thoroughly combined. Pour the mixture into the prepared tin and bake for 25-30 mins or until a skewer comes out clean.',
           ingredient: this.ingredientService.ingredients.lastObject,
           amountRequired: '10',

@@ -1,1 +1,8 @@
-{{yield}}
+<div class="card-recipe-cp">
+  <p><b>Position:</b> {{@step.position}}</p>
+  <p><b>Ingredient:</b> {{@step.ingredient.name}}</p>
+  <p><b>Instructions:</b> {{@step.instructions}}</p>
+  <p><b>Amount:</b> {{@step.amountRequired}}</p>
+  {{!-- <br>
+  <button class="btn btn-danger btn-sm" {{on "click" (fn this.removeRecipe @recipe)}}>Remove</button> --}}
+</div>

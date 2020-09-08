@@ -1,8 +1,9 @@
 <div class="col-xs-1 col-sm-6 col-md-6 col-lg-3">
   <div class="card-ingredient-cp">
-    Name: {{@ingredient.name}} <br>
-    Description: {{@ingredient.description}} <br>
-    <br>
+    <p><b>Name:</b> {{@ingredient.name}}</p>
+    {{#if @ingredient.description}}
+      <p><b>Description:</b> {{@ingredient.description}}</p>
+    {{/if}}
     <button class="btn btn-danger btn-sm" {{on "click" (fn this.removeIngredient @ingredient)}}>Remove</button>
     <button class="btn btn-info btn-sm" {{on "click" (fn this.editIngredient @ingredient)}}>Edit</button>
   </div>

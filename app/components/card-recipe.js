@@ -13,4 +13,8 @@ export default class CardRecipeComponent extends Component {
   @action editRecipe(recipe) {
     this.router.transitionTo('edit-recipe', recipe.id)
   }
+
+  @action viewRecipe(recipe) {
+    this.router.transitionTo('view-recipe', recipe.id)
+  }
 }

@@ -47,11 +47,11 @@ export default class RecipeService extends Service {
       numberServings: recipe.numberServings,
       cookingTime: recipe.cookingTime,
     })
-
-    this.steps && this.steps.forEach((step) => {
+    
+    steps.length && steps.forEach((step) => {
       this.store.createRecord('step', {
         id: this.guid(),
-        position: step.id,
+        position: step.position,
         instructions: step.instructions,
         amountRequired: step.amountRequired,
         ingredient: step.ingredient,

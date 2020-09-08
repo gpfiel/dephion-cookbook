@@ -13,4 +13,5 @@ Router.map(function() {
   this.route('ingredients');
   this.route('new-ingredient');
   this.route('edit-ingredient', { path: 'edit-ingredient/:id' });
+  this.route('view-recipe', { path: 'view-ingredient/:id' });
 });

@@ -1,0 +1,21 @@
+<div class="recipes-container">
+  <br>
+  <h2 class="color-text-default">View recipe - {{this.recipe.name}}</h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <p><b>Description:</b> {{this.recipe.description}}</p>
+      <p><b>Number of servings:</b> {{this.recipe.numberServings}}</p>
+      <p><b>Cooking Time:</b> {{this.recipe.cookingTime}}</p>
+    </div>
+    <div class="col-sm-12"><p><h4><u>Steps</u></h4></p></div>
+    <div>
+      {{#if (gt this.recipe.steps.length 0)}}
+        {{#each this.recipe.steps as |stepObj|}}        
+          <div class="col-sm-12">
+            <CardStep @step={{stepObj}} />
+          </div>  
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>
