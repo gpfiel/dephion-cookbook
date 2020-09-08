@@ -2,7 +2,7 @@
 
 Test appplication developed for Habitc/Dephion.
 
-Acces the link to check the application deployed: [http://139.59.153.72/]
+Access the link to check the application deployed: [http://139.59.153.72/]
 
 ## Functionalities
 
