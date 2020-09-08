@@ -2,7 +2,7 @@
   <br>
   <h2 class="color-text-default">New recipe</h2>
   <div class="row">
-    <div class="col-sm-12">
+    <div class={{if (eq this.steps.length 0) "col-sm-12" "col-sm-8"}}>
       <form>
         <div class="form-group">
           <label for="formName">Name</label>
@@ -21,18 +21,52 @@
           <Input type="text" class="form-control" id="formCookingTime" placeholder="10h"  @value={{this.recipe.cookingTime}} />
         </div>
         <hr>
-         <h4>Add Step </h4>
-         <select onchange={{action (mut ingredientSelected) value="target.value"}}>
-           <option value="0">Select ingredient</option>
+         <h4>Add Step</h4>
+         <select class="form-control" onchange={{action (mut ingredientSelected) value="target.value"}}>
+           <option value="default" selected={{eq ingredientSelected "default"}}>Select ingredient</option>
             {{#each this.ingredientService.ingredients as |ingredient|}}
-              <option value={{ingredient.id}} >{{ingredient.name}}</option>
+              <option value={{ingredient.id}} selected={{eq ingredientSelected ingredient.id}}>{{ingredient.name}}</option>
             {{/each}}
-        </select>
-        <hr>
-      
-        <button type="button" class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
-        <button type="submit"  disabled={{this.isNotValidForm}} class="btn btn-primary" {{on "click" (fn this.addRecipe)}}>Save</button>
+          </select>
+          {{#if (not-eq ingredientSelected "default")}}
+            <br>
+            <div class="form-group">
+              <label for="formStep">Step</label>
+              <Input type="text" class="form-control" id="formStep" placeholder="1" @value={{this.step.position}} />
+            </div>
+            <div class="form-group">
+              <label for="formInstructions">Instructions</label>
+              <Input type="text" class="form-control" id="formInstructions" placeholder="Heat oven to 180C/160C fan/ gas 4. Line a 20 x 20cm square baking tin with baking parchment." @value={{this.step.instructions}} />
+            </div>
+            <div class="form-group">
+              <label for="formAmountRequired">Amount Required</label>
+              <Input type="text" class="form-control" id="formAmountRequired" placeholder="30g granulated sugar" @value={{this.step.amountRequired}} />
+            </div>
+            <button type="button" class="btn btn-danger" {{on "click" (fn this.cleanStep)}}>Cancel step</button>
+            <button type="button"  disabled={{this.isNotValidStepForm}} class="btn btn-primary" {{on "click" (fn this.addStep)}}>Save step</button>
+          {{/if}}
+        {{#if (eq ingredientSelected "default")}}
+          <hr>
+          <button type="button" class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
+          <button type="submit"  disabled={{this.isNotValidForm}} class="btn btn-primary" {{on "click" (fn this.addRecipe)}}>Save</button>
+        {{/if}}
       </form>
     </div>
+    {{#if (gt this.steps.length 0)}}
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <h4>Steps</h4>
+        {{#each this.steps as |stepObj|}}        
+          <div class="card-recipe-cp">
+            Position: {{stepObj.position}} <br>
+            Ingredient: {{stepObj.ingredient.name}} <br>
+            Instructions: {{stepObj.instructions}} <br>
+            Amount: {{stepObj.amountRequired}} <br>
+            {{!-- <br>
+            <button class="btn btn-danger btn-sm" {{on "click" (fn this.removeRecipe @recipe)}}>Remove</button> --}}
+          </div>
+        {{/each}}
+      </div>  
+    {{/if}}
+    
   </div>
 </div>

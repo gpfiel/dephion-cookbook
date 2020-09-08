@@ -52,7 +52,8 @@
     "qunit-dom": "^1.4.0",
     "ember-cli-sass": "^7.2.0",
     "ember-cli-bootstrap-4": "^0.6.1",
-    "ember-font-awesome": "^4.0.0-rc.4"
+    "ember-font-awesome": "^4.0.0-rc.4",
+    "ember-truth-helpers": "^2.1.0"
   },
   "engines": {
     "node": "10.* || >= 12"

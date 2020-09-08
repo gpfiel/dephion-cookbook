@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { A } from '@ember/array'
 
 export default class NewRecipeRoute extends Route {
   resetController(controller, isExiting) {
@@ -9,6 +10,8 @@ export default class NewRecipeRoute extends Route {
         numberServings: null,
         cookingTime: null
       })
+      controller.set('steps', A([]))
+      controller.cleanStepObj()
 		}
 	}
 }

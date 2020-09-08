@@ -5,5 +5,5 @@ export default class ReceipeModel extends Model {
   @attr('string') description;
   @attr('number') numberServings;
   @attr('string') cookingTime;
-  @hasMany('step') step;
+  @hasMany('step') steps;
 }

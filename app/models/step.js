@@ -1,7 +1,9 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class StepModel extends Model {
   @attr('number') position;
   @attr('string') instructions;
-  @hasMany('step-ingredient') stepIngredient;
+  @attr('string') amountRequired;
+  @belongsTo('ingredient') ingredient;
+  @belongsTo('recipe') recipe;
 }
