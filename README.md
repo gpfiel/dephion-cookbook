@@ -1,7 +1,14 @@
 # cookbook
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Test appplication developed for Habitc/Dephion.
+
+Acces the link to check the application deployed: [http://139.59.153.72/]
+
+## Functionalities
+
+* CRUD Recipe
+* Create Step
+* CRUD Ingredients
 
 ## Prerequisites
 
