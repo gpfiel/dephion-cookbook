@@ -20,7 +20,7 @@ export default class IngredientService extends Service {
   }
   
   matchFields(ingredient) {
-    return ingredient.name.indexOf(this.search) != -1
+    return ingredient.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1
   };
 
   @computed('ingredients.length')

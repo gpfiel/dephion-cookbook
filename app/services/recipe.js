@@ -20,7 +20,7 @@ export default class RecipeService extends Service {
   }
   
   matchFields(recipe) {
-    return recipe.name.indexOf(this.search) != -1
+    return recipe.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1
   };
 
   @computed('recipes.length')
