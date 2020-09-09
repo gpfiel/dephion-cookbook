@@ -47,8 +47,14 @@
           {{/if}}
         {{#if (eq ingredientSelected "default")}}
           <hr>
-          <button type="button" class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
-          <button type="submit"  disabled={{this.isNotValidForm}} class="btn btn-primary" {{on "click" (fn this.addRecipe)}}>Save</button>
+          <button type="button" disabled={{this.recipeObj.isSaving}} class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
+          <button type="submit" disabled={{or this.isNotValidForm this.recipeObj.isSaving}} class="btn btn-primary" {{on "click" (fn this.addRecipe)}}>
+            {{#if this.recipeObj.isSaving}}
+              saving
+            {{else}}
+              Save
+            {{/if}}
+          </button>
         {{/if}}
       </form>
     </div>

@@ -43,24 +43,25 @@ export default class RecipeService extends Service {
 
   add(recipe, steps = null) {
     const recipeObj = this.store.createRecord('recipe', {
-      id: this.guid(),
       name: recipe.name,
       description: recipe.description,
       numberServings: recipe.numberServings,
       cookingTime: recipe.cookingTime,
+      stepsToSave: steps
     })
+
+    return recipeObj
     
-    steps.length && steps.forEach((step) => {
-      this.store.createRecord('step', {
-        id: this.guid(),
-        position: step.position,
-        instructions: step.instructions,
-        amountRequired: step.amountRequired,
-        ingredient: step.ingredient,
-        recipe: recipeObj,
-      })
-    })
-    this.recipes.pushObject(recipeObj);
+    // steps.length && steps.forEach((step) => {
+    //   this.store.createRecord('step', {
+    //     id: this.guid(),
+    //     position: step.position,
+    //     instructions: step.instructions,
+    //     amountRequired: step.amountRequired,
+    //     ingredient: step.ingredient,
+    //     recipe: recipeObj,
+    //   })
+    // })
   }
 
   remove(recipe) {

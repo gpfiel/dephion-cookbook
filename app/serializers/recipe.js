@@ -17,5 +17,20 @@ export default DS.RESTSerializer.extend(NormalizeEmbeddedData, {
     delete hash['number_servings']
     delete hash['cooking_time']
     return this._super(typeHash, hash);
+	},
+	serialize(snapshot, options) {
+    var json = {
+      name: snapshot.attr('name'),
+      description: snapshot.attr('description'),
+      number_servings: snapshot.attr('numberServings'),
+      cooking_time: snapshot.attr('cookingTime'),
+      steps: snapshot.attr('stepsToSave'),
+    };
+
+    if (options.includeId) {
+      json.id = snapshot.id;
+    }
+
+    return json;
   }
 });

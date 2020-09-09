@@ -63,4 +63,13 @@ export default class ApplicationRoute extends Route {
       ]
     )
   }
+
+  model(){
+    return this.store.findAll('ingredient')
+  }
+
+  setupController(controller, model) {
+    super.setupController(controller, model)
+    this.ingredientService.ingredients = model
+  }
 }

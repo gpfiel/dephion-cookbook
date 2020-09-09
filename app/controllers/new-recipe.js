@@ -12,6 +12,8 @@ export default class NewRecipeController extends Controller {
 
   @tracked ingredientSelected = 'default'
 
+  recipeObj = null
+
   steps = A([]);
 
   recipe = {
@@ -36,6 +38,7 @@ export default class NewRecipeController extends Controller {
       ingredient: null,
       amountRequired: null,
     }
+    this.recipeObj = null
   }
 
   @computed('recipe.name')
@@ -44,7 +47,9 @@ export default class NewRecipeController extends Controller {
   }
 
   @action addStep() {
-    this.step.ingredient = this.store.peekRecord('ingredient', this.ingredientSelected )
+    this.step.ingredient = this.store.peekRecord('ingredient', this.ingredientSelected ).id
+    this.step.amount_required = this.step.amountRequired
+    delete this.step.amountRequired
     this.steps.pushObject(this.step)
     this.cleanStepObj()
   }
@@ -53,9 +58,12 @@ export default class NewRecipeController extends Controller {
     this.cleanStepObj()
   }
 
-  @action addRecipe() {
-    this.recipeService.add(this.recipe, this.steps)
-    this.transitionToRoute('recipes')
+  @action async addRecipe() {
+    const recipe = await this.recipeService.add(this.recipe, this.steps)
+    this.recipeObj = recipe
+    await recipe.save().then(() => {
+      this.transitionToRoute('recipes')
+    })
   }
   
 
