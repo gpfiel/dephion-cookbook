@@ -10,8 +10,9 @@ Router.map(function() {
   this.route('recipes');
   this.route('new-recipe');
   this.route('edit-recipe', { path: 'edit-recipe/:id' });
+  this.route('view-recipe', { path: 'view-recipe/:id' });
   this.route('ingredients');
   this.route('new-ingredient');
   this.route('edit-ingredient', { path: 'edit-ingredient/:id' });
-  this.route('view-recipe', { path: 'view-ingredient/:id' });
+  this.route('view-ingredient', { path: 'view-ingredient/:id' });
 });

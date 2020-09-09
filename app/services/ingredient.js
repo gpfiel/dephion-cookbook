@@ -3,13 +3,14 @@ import { A } from '@ember/array'
 import { computed } from '@ember/object'
 import { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 
 export default class IngredientService extends Service {
   @service store
 
   search = null
 
-  ingredients = A([]);
+  @tracked ingredients = A([]);
 
   guid() {
     function s4() {
@@ -24,7 +25,8 @@ export default class IngredientService extends Service {
 
   @computed('ingredients.length')
   get loaded () {
-    return this.ingredients.length
+    return true
+    // return this.ingredients.length
   }
 
   @computed('ingredients.length', 'search')

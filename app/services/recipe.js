@@ -3,13 +3,14 @@ import { A } from '@ember/array'
 import { computed } from '@ember/object'
 import { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 
 export default class RecipeService extends Service {
   @service store
 
   search = null
 
-  recipes = A([]);
+  @tracked recipes = A([]);
 
   guid() {
     function s4() {
@@ -24,7 +25,8 @@ export default class RecipeService extends Service {
 
   @computed('recipes.length')
   get loaded () {
-    return this.recipes.length
+    return true
+    // return this.recipes.length
   }
 
   @computed('recipes.length', 'search')
@@ -65,12 +67,8 @@ export default class RecipeService extends Service {
     const self = this;
     (async function () {
       if (await confirm(`Are you sure about deleting (${recipe.name.toUpperCase()}) ?`)) {
-        self.recipes.removeObject(recipe);
+        recipe.destroyRecord()
       }
     })()
-  }
-
-  empty() {
-    this.recipes.clear();
   }
 }
