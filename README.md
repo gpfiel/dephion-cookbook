@@ -21,7 +21,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone https://github.com/gpfiel/dephion-cookbook.git` this repository
-* `cd cookbook`
+* `cd dephion-cookbook`
 * `npm install`
 
 ## Running / Development
