@@ -51,17 +51,6 @@ export default class RecipeService extends Service {
     })
 
     return recipeObj
-    
-    // steps.length && steps.forEach((step) => {
-    //   this.store.createRecord('step', {
-    //     id: this.guid(),
-    //     position: step.position,
-    //     instructions: step.instructions,
-    //     amountRequired: step.amountRequired,
-    //     ingredient: step.ingredient,
-    //     recipe: recipeObj,
-    //   })
-    // })
   }
 
   remove(recipe) {
