@@ -12,8 +12,8 @@
           <label for="formDescription">Description</label>
           <Input type="text" class="form-control" id="formDescription" placeholder="description" @value={{this.ingredient.description}} />
         </div>
-        <button type="button" class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
-        <button type="submit"  disabled={{this.isNotValidForm}} class="btn btn-primary" {{on "click" (fn this.addIngredient)}}>Save</button>
+        <button type="button" disabled={{this.ingredientObj.isSaving}} class="btn btn-danger" {{on "click" (fn this.cancel)}}>Cancel</button>
+        <button type="submit"  disabled={{or this.isNotValidForm this.ingredientObj.isSaving}} class="btn btn-primary" {{on "click" (fn this.addIngredient)}}>Save</button>
       </form>
     </div>
   </div>

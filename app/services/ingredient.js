@@ -47,14 +47,14 @@ export default class IngredientService extends Service {
       name: ingredient.name,
       description: ingredient.description
     })
-    this.ingredients.pushObject(ingredientObj);
+    return ingredientObj
   }
 
   remove(ingredient) {
     const self = this;
     (async function () {
       if (await confirm(`Are you sure about deleting (${ingredient.name.toUpperCase()}) ?`)) {
-        self.ingredients.removeObject(ingredient);
+        ingredient.destroyRecord()
       }
     })()
   }

@@ -11,14 +11,19 @@ export default class NewIngredientController extends Controller {
     description: null
   }
 
+  ingredientObj = null
+
   @computed('ingredient.name')
   get isNotValidForm () {
     return isEmpty(this.ingredient.name)
   }
 
-  @action addIngredient() {
-    this.ingredientService.add(this.ingredient)
-    this.transitionToRoute('ingredients')
+  @action async addIngredient() {
+    const ingredient = await this.ingredientService.add(this.ingredient, this.steps)
+    this.ingredientObj = ingredient
+    await ingredient.save().then(() => {
+      this.transitionToRoute('ingredients')
+    })
   }
   
   @action cancel() {
